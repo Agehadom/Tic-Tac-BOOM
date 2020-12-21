@@ -18,6 +18,7 @@ $(() => {
   $('#log-in').on('submit', userEvents.onSignInUser)
   $('#log-out').on('click', userEvents.onSignOutUser)
   $('#change-pass').on('submit', userEvents.onChangePass)
+  $('.actualGetButton').on('click', userEvents.onViewGames)
 
 
   // Game

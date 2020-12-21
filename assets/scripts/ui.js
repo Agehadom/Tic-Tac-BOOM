@@ -4,6 +4,7 @@ const store = require('./store.js')
 // User
 const onRegisterUser = function () {
   console.log('Sign Up Clicked');
+  $('form').trigger('reset')
 }
 
 const onSignInUser = function (response) {
@@ -11,7 +12,9 @@ const onSignInUser = function (response) {
   store.user = response.user
   console.log(response.user);
   $('.auth').show()
-
+  $('.unauth').hide()
+  $(".modal-backdrop").remove()
+  $('form').trigger('reset')
   $('.welcomeMessage h1').text("Hey " + store.user.email + "!")
 }
 
@@ -23,7 +26,7 @@ const onSignOutUser = function () {
 }
 
 const onChangePass = function (response) {
-  //$('form').trigger('reset')
+  $('form').trigger('reset')
   console.log('Alright, thats cool');
 }
 
@@ -38,12 +41,13 @@ const startGame = function (gameResponse) {
   console.log(gameResponse.game._id);
 
   $('.actualPlayButton h1').text("Replay")
+}
 
+const onViewGames = function (gameResponse) {
+  console.log(gameResponse.games.length)
+  $('.welcomeMessage p').html(store.user.email + " has played " + gameResponse.games.length + " games!")
 }
 
 // Game API UI
-const onGamesGet = function (response) {
-    $('#getGamesTotal').text(response.games.length)
-}
 
-module.exports = {onRegisterUser, onSignInUser, onSignOutUser, onFailure, startGame, onChangePass};
+module.exports = {onRegisterUser, onSignInUser, onSignOutUser, onFailure, startGame, onChangePass, onViewGames}

@@ -53,7 +53,7 @@ const changepass = function (formData) {
 
 // Game API
 
-const getGames = function () {
+const viewgames = function () {
   return $.ajax({
     url: config.apiUrl + '/games',
     method: 'GET',
@@ -101,7 +101,7 @@ module.exports = {
   signin,
   signout,
   changepass,
-  getGames,
+  viewgames,
   startGame,
   updateGame
 };
