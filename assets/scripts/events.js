@@ -6,7 +6,6 @@ const getFormFields = require('./../../lib/get-form-fields.js')
 // User Events
 const onRegisterUser = function (event) {
   event.preventDefault();
-  console.log('Register submit button clicked');
 
   const form = event.target
   const formData = getFormFields(form)
@@ -14,27 +13,26 @@ const onRegisterUser = function (event) {
   console.log(formData);
 
   api.signup(formData)
-  .then(ui.onSignUpUser)
-  .catch(ui.onFailure)
+  .then(ui.onRegisterUser)
+  .catch(ui.onRegisterFailure)
 }
 
 const onSignInUser = function (event) {
   event.preventDefault();
-  console.log('Login submit button clicked');
 
   const form = event.target
   const formData = getFormFields(form)
 
   api.signin(formData)
   .then(ui.onSignInUser)
-  .catch(ui.onFailure)
+  .catch(ui.onLogInFailure)
 }
 
 const onSignOutUser = function (event) {
   event.preventDefault()
 
   api.signout()
-  .then(ui.onLogOffUser)
+  .then(ui.onSignOutUser)
   .catch(ui.onFailure)
 }
 
@@ -46,13 +44,11 @@ const onChangePass = function (event) {
 
   api.changepass(data)
   .then(ui.onChangePass)
-  .catch(ui.onFailure)
+  .catch(ui.onPassChangeFailure)
 }
 
 const onViewGames = function (event) {
   event.preventDefault()
-
-  console.log('Made it to events');
 
   api.viewgames()
   .then(ui.onViewGames)

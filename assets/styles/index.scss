@@ -1,6 +1,5 @@
 @import '~bootstrap/scss/bootstrap';
 
-
 h2 {
     font-size: 12px;
     text-align: center;
@@ -36,13 +35,6 @@ h2 {
   margin-bottom: 10px;
 }
 
-/*span {
-  background: #000099;
-  text-align: right;
-  float: right;
-  position: absolute;
-}*/
-
 .button_container {
   display: inline-flex;
   //background: #009900;
@@ -50,12 +42,9 @@ h2 {
   align-items: stretch;
 }
 
-.button_container > div {
-  //margin: 10px;
-}
-
 body {
   justify-content: center;
+  align-items: center;
   background-color: #927392;
 }
 
@@ -65,12 +54,6 @@ div.main {
   background-color: #927392;
 }
 
-/*#board_container::before {
-  pointer-events: none;
-  display: inline;
-  background: #990000;
-}*/
-
 #board_container {
   pointer-events: none;
   display: grid;
@@ -79,6 +62,8 @@ div.main {
   gap: 3px;
   flex-grow: 1;
   border-radius: 30px;
+  margin: 2px;
+  padding: 2px;
 }
 
 #box.a1 {
