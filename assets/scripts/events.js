@@ -1,6 +1,7 @@
 const api = require('./api')
 const ui = require('./ui')
 const getFormFields = require('./../../lib/get-form-fields.js')
+const gameLogic = require('./gameLogic')
 
 
 // User Events
@@ -17,8 +18,13 @@ const onRegisterUser = function (event) {
   .catch(ui.onRegisterFailure)
 }
 
+const onRegisterClick = function (event) {
+  $('#registerModalLabel').text('Register Below.')
+}
+
 const onSignInUser = function (event) {
   event.preventDefault();
+  $('#loginModalLabel').text('Log In Below.')
 
   const form = event.target
   const formData = getFormFields(form)
@@ -30,6 +36,8 @@ const onSignInUser = function (event) {
 
 const onSignOutUser = function (event) {
   event.preventDefault()
+
+  gameLogic.cleanPage()
 
   api.signout()
   .then(ui.onSignOutUser)
@@ -55,13 +63,11 @@ const onViewGames = function (event) {
   .catch(ui.onFailure)
 }
 
-// Game API Events
-
-
 module.exports = {
   onRegisterUser,
   onSignInUser,
   onSignOutUser,
   onChangePass,
-  onViewGames
+  onViewGames,
+  onRegisterClick
 };

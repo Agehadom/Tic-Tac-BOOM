@@ -15,6 +15,7 @@ $(() => {
 
   // User
   $('#register').on('submit', userEvents.onRegisterUser)
+  $('#register').on('click', userEvents.onRegisterClick)
   $('#log-in').on('submit', userEvents.onSignInUser)
   $('#log-out').on('click', userEvents.onSignOutUser)
   $('#change-pass').on('submit', userEvents.onChangePass)

@@ -31,7 +31,7 @@ h2 {
   align-items: center;
   height: auto;
   width: 100%;
-  background-color: #929749;
+  background-color: #982649;
   margin-bottom: 10px;
 }
 
@@ -45,13 +45,17 @@ h2 {
 body {
   justify-content: center;
   align-items: center;
-  background-color: #927392;
+  background-color: #982649;
 }
 
 div.main {
   display: grid;
   grid-template-columns: 2fr 1fr;
   background-color: #927392;
+  margin: 10px;
+  padding: 30px;
+  border-radius: 30px;
+  box-shadow: 0px 10px;
 }
 
 #board_container {
@@ -153,10 +157,11 @@ div.main {
   margin: 4px;
   justify-self: center;
   font-size: 80px;
-  border: 2px solid #000000;
+  border: 2px solid #F6F4F3;
   border-radius: 30px;
   width: 100%;
   height: 100%;
+  box-shadow: 0px 10px;
 }
 
 
@@ -175,34 +180,54 @@ div.main {
 }
 
 .user_container {
-  background: #920092;
+  color: #000000;
+  background: #12263A;
   justify-self: center;
   text-align: center;
   margin: 10px;
   padding: 10px;
   border-radius: 30px;
+  border: 2px solid #F6F4F3;
+  box-shadow: 0px 10px;
 }
 
 .game_container {
-  background: #009933;
+  color: #000000;
+  background: #982649;
   margin: 10px;
   padding: 10px;
   border-radius: 30px;
   text-align: center;
+  border: 2px solid #F6F4F3;
+  box-shadow: 0px 10px;
 }
 
 .play_button {
-  background: #009933;
+  color: #000000;
+  background: #982649;
   margin: 10px;
   padding: 10px;
   border-radius: 30px;
   text-align: center;
+  border: 2px solid #F6F4F3;
+  box-shadow: 0px 10px;
+}
+
+.play_button h1 {
+  color: #F6F4F3;
 }
 
 .allGame_button {
-    background: #009933;
+    background: #982649;
     margin: 10px;
     padding: 10px;
     border-radius: 30px;
     text-align: center;
+    color: #000000;
+    border: 2px solid #F6F4F3;
+    box-shadow: 0px 10px;
+}
+
+.allGame_button h1 {
+  color: #F6F4F3;
 }

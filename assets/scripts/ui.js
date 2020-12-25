@@ -52,6 +52,7 @@ const onLogInFailure = function () {
 const startGame = function (gameResponse) {
   store.game = gameResponse.game
   $('.actualPlayButton h1').text("Replay")
+  $('.button_container').hide()
 }
 
 const onViewGames = function (gameResponse) {

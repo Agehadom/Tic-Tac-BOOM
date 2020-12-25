@@ -30,6 +30,7 @@ const checkBoard = function () {
       $('#board_container').css( "pointer-events", "none" );
       $('.game_container h1').text("X wins!");
       $('.game_container p').text("Game Over, Press Replay to play again.");
+      $('.button_container').show();
       gameEnable();
     }
     if (winner === true) {
@@ -40,6 +41,7 @@ const checkBoard = function () {
         $('#board_container').css( "pointer-events", "none" );
         $('.game_container h1').text("O wins!");
         $('.game_container p').text("Game Over, Press Replay to play again.");
+        $('.button_container').show();
         gameEnable();
         }
       }
@@ -51,6 +53,7 @@ const checkBoard = function () {
       $('#board_container').css( "pointer-events", "none" );
       $('.game_container h1').text("Draw game.");
       $('.game_container p').text("Game Over, Press Replay to play again.");
+      $('.button_container').show();
       gameEnable();
     }
   }
@@ -137,10 +140,25 @@ function resetGame (event) {
   gameEnable()
 }
 
+function cleanPage (event) {
+  const cells = document.querySelectorAll('#box')
+
+  $('.game_container h1').text("Play Information")
+  $('.actualPlayButton h1').text("Begin the Battle")
+  $('.game_container p').text("")
+  $('.welcomeMessage p').html("")
+
+  for (const cell of cells) {
+    cell.classList.remove('X');
+    cell.classList.remove('O');
+  }
+}
+
 module.exports = {
   startGame,
   cellSelect,
   resetGame,
   gameEnable,
-  checkBoard
+  checkBoard,
+  cleanPage
 }
