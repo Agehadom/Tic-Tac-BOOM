@@ -49,14 +49,17 @@ const onChangePass = function (event) {
   .catch(ui.onFailure)
 }
 
-// Game API Events
-
-const onGamesGet = function (event) {
+const onViewGames = function (event) {
   event.preventDefault()
-  api.gamesGet()
-    .then(ui.onGamesGet)
-    .catch(ui.failure)
+
+  console.log('Made it to events');
+
+  api.viewgames()
+  .then(ui.onViewGames)
+  .catch(ui.onFailure)
 }
+
+// Game API Events
 
 
 module.exports = {
@@ -64,5 +67,5 @@ module.exports = {
   onSignInUser,
   onSignOutUser,
   onChangePass,
-  onGamesGet
+  onViewGames
 };

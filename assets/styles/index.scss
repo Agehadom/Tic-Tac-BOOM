@@ -9,10 +9,21 @@ h2 {
 .actualPlayButton {
   border: 2px solid #999999;
   background-color: inherit;
-  padding: 2px 2px;
+  padding: 6px 6px;
   font-size: 16px;
   cursor: pointer;
   display: inline-block;
+  border-radius: 20px;
+}
+
+.actualGetButton {
+  border: 2px solid #999999;
+  background-color: inherit;
+  padding: 6px 6px;
+  font-size: 16px;
+  cursor: pointer;
+  display: inline-block;
+  border-radius: 20px;
 }
 
 .title_bar {
@@ -54,12 +65,14 @@ div.main {
   background-color: #927392;
 }
 
-/*#board_container:before {
-  display: grid;
+/*#board_container::before {
+  pointer-events: none;
+  display: inline;
   background: #990000;
 }*/
 
 #board_container {
+  pointer-events: none;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   grid-template-rows: auto;
@@ -161,6 +174,13 @@ div.main {
   height: 100%;
 }
 
+
+#box.X, #box.O {
+  background: rgba(0, 0, 0, 0.2);
+  pointer-events: none;
+  cursor: not-allowed;
+}
+
 .X::before {
   content: 'X';
 }
@@ -183,7 +203,7 @@ div.main {
   margin: 10px;
   padding: 10px;
   border-radius: 30px;
-  text-align: left;
+  text-align: center;
 }
 
 .play_button {
@@ -192,4 +212,12 @@ div.main {
   padding: 10px;
   border-radius: 30px;
   text-align: center;
+}
+
+.allGame_button {
+    background: #009933;
+    margin: 10px;
+    padding: 10px;
+    border-radius: 30px;
+    text-align: center;
 }
