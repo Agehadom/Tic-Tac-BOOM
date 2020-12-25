@@ -14,7 +14,7 @@ $(() => {
   $('.auth').hide()
 
   // User
-  $('#registration').on('submit', userEvents.onRegisterUser)
+  $('#register').on('submit', userEvents.onRegisterUser)
   $('#log-in').on('submit', userEvents.onSignInUser)
   $('#log-out').on('click', userEvents.onSignOutUser)
   $('#change-pass').on('submit', userEvents.onChangePass)
@@ -23,5 +23,4 @@ $(() => {
 
   // Game
   $('.actualPlayButton').on('click', boardEvents.startGame)
-  //$('[id=box]').on('click', boardEvents.playAreaAction)
 })

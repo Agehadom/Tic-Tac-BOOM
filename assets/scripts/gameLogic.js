@@ -4,6 +4,7 @@ const store = require('./store')
 
 let turnCount = 1;
 let gameActive = 0;
+let gameStart = false;
 
 const checkBoard = function () {
 
@@ -58,8 +59,6 @@ const cells = document.querySelectorAll('#box')
 const newGame = document.querySelectorAll('.actualPlayButton')
 
 const cellSelect = function (event) {
-  console.log(event.target);
-  console.log(event.target.classList);
 
   if (turnCount === 1) {
     $('.game_container p').text("O's Turn")
@@ -78,44 +77,42 @@ const cellSelect = function (event) {
     checkBoard()
     api.updateGame()
     turnCount = 1;
-
   }
-  /*if (event.target.classList === "X" || "O") {
-    event.target.removeEventListener('click', cellSelect);
-  }*/
 }
 
 function gameEnable () {
   for (const cell of cells) {
     if (gameActive === 1) {
     cell.addEventListener('click', cellSelect)
-  } //else cell.removeEventListener('click', cellSelect)
+    }
   }
 }
 
 function startGame () {
 
   if (gameActive === 0) {
-  console.log('Begin the battle')
-  console.log(cells);
-  console.log(newGame);
 
   api.startGame()
   .then(ui.startGame)
   .catch(ui.onFailure)
 
   gameActive = 1
-  $('.game_container p').text("X's Turn")
 
+  $('.game_container p').text("X's Turn")
   $('#board_container').css( "pointer-events", "all" );
   $('.game_container h1').text("Play Information");
 
+  if (gameStart) {
+    resetGame();
+  }
+
   gameEnable()
+
+  gameStart = true;
 
 } else {
   if (gameActive === 1) {
-    console.log('There is a game in progress');
-    resetGame()
+    resetGame();
     }
   }
 }
@@ -124,10 +121,8 @@ function resetGame (event) {
   const cells = document.querySelectorAll('#box')
 
   store.game.over = true
+  store.game.cells = ['', '', '', '', '', '', '', '', '']
   gameActive = 0
-
-  console.log(cells);
-  console.log('DESTROY THE BOARD');
 
   for (const cell of cells) {
     cell.classList.remove('X');
@@ -136,13 +131,10 @@ function resetGame (event) {
 
   gameActive = 1
   turnCount = 1
+
   $('.game_container p').text("X's Turn")
 
   gameEnable()
-
-  api.startGame()
-  .then(ui.startGame)
-  .catch(ui.onFailure)
 }
 
 module.exports = {

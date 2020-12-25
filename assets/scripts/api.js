@@ -3,7 +3,6 @@ const store = require('./store.js')
 
 // User API
 const signup = function (formData) {
-  console.log('Someone registered!');
 
   return $.ajax({
     url: config.apiUrl + '/sign-up/',
@@ -13,8 +12,6 @@ const signup = function (formData) {
 }
 
 const signin = function (formData) {
-  console.log('Something wicked this way comes');
-  $('.auth').show()
 
   return $.ajax({
     url: config.apiUrl + '/sign-in/',
@@ -24,7 +21,6 @@ const signin = function (formData) {
 }
 
 const signout = function () {
-  console.log('Im leaving you');
 
   $('.auth').hide()
   $('.unauth').show()
@@ -39,7 +35,6 @@ const signout = function () {
 }
 
 const changepass = function (formData) {
-  console.log('Call Heard!')
 
   return $.ajax({
     url: config.apiUrl + '/change-password/',
@@ -64,7 +59,6 @@ const viewgames = function () {
 }
 
 const startGame = function () {
-  console.log('Its Time');
 
   return $.ajax({
     url: config.apiUrl + '/games/',
@@ -76,8 +70,7 @@ const startGame = function () {
 }
 
 const updateGame = function () {
-  console.log('A move was sent to the API')
-  console.log(store);
+
   return $.ajax({
     url: config.apiUrl + '/games/' + store.game._id,
     method: 'PATCH',
