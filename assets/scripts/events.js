@@ -55,6 +55,10 @@ const onChangePass = function (event) {
   .catch(ui.onPassChangeFailure)
 }
 
+const onChangePassClick = function (event) {
+  $('#changePassModalLabel').text('Change Password Below.')
+}
+
 const onViewGames = function (event) {
   event.preventDefault()
 
@@ -69,5 +73,6 @@ module.exports = {
   onSignOutUser,
   onChangePass,
   onViewGames,
-  onRegisterClick
+  onRegisterClick,
+  onChangePassClick
 };
