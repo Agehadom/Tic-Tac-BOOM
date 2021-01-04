@@ -16940,6 +16940,7 @@ $(function () {
   $('#log-in').on('submit', userEvents.onSignInUser);
   $('#log-out').on('click', userEvents.onSignOutUser);
   $('#change-pass').on('submit', userEvents.onChangePass);
+  $('#change-pass').on('click', userEvents.onChangePassClick);
   $('.actualGetButton').on('click', userEvents.onViewGames);
 
   // Game
@@ -17025,6 +17026,10 @@ var onChangePass = function onChangePass(event) {
   api.changepass(data).then(ui.onChangePass).catch(ui.onPassChangeFailure);
 };
 
+var onChangePassClick = function onChangePassClick(event) {
+  $('#changePassModalLabel').text('Change Password Below.');
+};
+
 var onViewGames = function onViewGames(event) {
   event.preventDefault();
 
@@ -17037,7 +17042,8 @@ module.exports = {
   onSignOutUser: onSignOutUser,
   onChangePass: onChangePass,
   onViewGames: onViewGames,
-  onRegisterClick: onRegisterClick
+  onRegisterClick: onRegisterClick,
+  onChangePassClick: onChangePassClick
 };
 /* WEBPACK VAR INJECTION */}.call(exports, __webpack_require__(32)))
 
